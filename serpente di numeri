@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int* riempi_matrice(int r, int c) {
+    int *mat = new int [r*c];
+    int a = 1;
+    for (int i = 0; i < r; i++) {
+        if (i % 2== 0)
+            for (int j = 0; j < c; j++) {
+                *(mat +i*c+j) = a;
+                a++;
+            }
+        if (i % 2 != 0)
+            for (int j = c-1; j >= 0; j--) {
+                *(mat +i*c+j) = a;
+                a++;
+            }
+    }
+    return mat;
+}
+
+int main() {
+    int N, M;
+    cout<<"Inserisci N: ";
+    cin>>N;
+    cout<<"Inserisci M: ";
+    cin>>M;
+    int *p;
+    p=riempi_matrice(N, M);
+    for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++)
+                cout<<*(p +i*M+j)<<"\t";
+                cout<<endl;
+
+}
+    return 0;
+}
